@@ -9,6 +9,7 @@ import { Hero } from "@/components/home/Hero";
 import { HowToOrder } from "@/components/home/HowToOrder";
 import { Philosophy } from "@/components/home/Philosophy";
 import { StructuredData } from "@/components/home/StructuredData";
+import { Testimonials } from "@/components/home/Testimonials";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <Book />
         <Experience />
         <Curator />
+        <Testimonials />
         <Editions />
         <HowToOrder />
       </main>

@@ -162,6 +162,19 @@ body {
   }
 }
 
+/* Testimonial row: Tailwind 4 only keeps keyframes declared inside @theme. */
+@theme {
+  --animate-marquee: marquee var(--marquee-duration, 50s) linear infinite;
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
