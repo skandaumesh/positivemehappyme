@@ -7,10 +7,12 @@ import { Header } from "@/components/home/Header";
 import { Hero } from "@/components/home/Hero";
 import { HowToOrder } from "@/components/home/HowToOrder";
 import { Philosophy } from "@/components/home/Philosophy";
+import { StructuredData } from "@/components/home/StructuredData";
 
 export default function Home() {
   return (
     <>
+      <StructuredData />
       <Header />
       <main>
         <Hero />

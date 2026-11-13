@@ -6,7 +6,7 @@ import { Dashboard } from "./Dashboard";
 import { LoginForm } from "./LoginForm";
 
 export const metadata: Metadata = {
-  title: "Orders — Positive Me Happy Me",
+  title: "Orders admin",
   robots: { index: false, follow: false },
 };
 

@@ -6,7 +6,7 @@ import { Footer } from "@/components/home/Footer";
 import { Header } from "@/components/home/Header";
 
 export const metadata: Metadata = {
-  title: "Your Cart — Positive Me Happy Me",
+  title: "Your Cart",
   description: "Review your Daily Dose of Affirmation, share your delivery details and pay by UPI.",
   robots: { index: false, follow: true },
 };

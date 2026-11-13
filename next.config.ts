@@ -8,6 +8,10 @@ const lanAddresses = Object.values(networkInterfaces())
   .filter((a) => a && a.family === "IPv4" && !a.internal)
   .map((a) => a!.address);
 
+// Vercel sets this to the production domain (custom domain once added, else *.vercel.app).
+const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL ?? "";
+const hasCustomDomain = productionHost !== "" && !productionHost.endsWith(".vercel.app");
+
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "DENY" },
@@ -34,6 +38,17 @@ const nextConfig: NextConfig = {
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
       { source: "/admin", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
+      // Once a custom domain is the production domain, keep the *.vercel.app copy out
+      // of Google so it isn't indexed as a duplicate (canonical links point to the domain).
+      ...(hasCustomDomain
+        ? [
+            {
+              source: "/:path*",
+              has: [{ type: "host" as const, value: ".*\\.vercel\\.app" }],
+              headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+            },
+          ]
+        : []),
     ];
   },
   cacheComponents: true,

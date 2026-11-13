@@ -66,6 +66,18 @@ export const EDITIONS: Record<
 
 export const site = {
   name: "Positive Me Happy Me",
+  /**
+   * The one address Google should index (canonical links, sitemap, structured data,
+   * share images). Server-side only. On Vercel this follows the production domain
+   * automatically: positivemehappyme.vercel.app until the custom domain is added,
+   * then positivemehappyme.com (redeploy after adding it). NEXT_PUBLIC_SITE_URL overrides.
+   */
+  url: (
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "https://positivemehappyme.com")
+  ).replace(/\/$/, ""),
   author: "Neha Lal",
   instagram: "positivemehappyme",
   /** Digits only, with country code, e.g. 919876543210 */

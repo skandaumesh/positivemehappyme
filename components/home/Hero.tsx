@@ -18,7 +18,7 @@ export function Hero() {
         height={1254}
         priority
         sizes="(min-width: 1024px) 440px, (min-width: 640px) 400px, 280px"
-        className="pointer-events-none absolute -top-40 -left-40 w-[280px] animate-[spin_160s_linear_infinite] sm:-top-48 sm:-left-48 sm:w-[400px] lg:-top-52 lg:-left-56 lg:w-[440px]"
+        className="pointer-events-none absolute -top-32 -left-32 w-[270px] animate-[spin_160s_linear_infinite] sm:-top-48 sm:-left-48 sm:w-[400px] lg:-top-52 lg:-left-56 lg:w-[440px]"
       />
       <Image
         src={site.images.mandala}
@@ -26,8 +26,8 @@ export function Hero() {
         aria-hidden="true"
         width={1254}
         height={1254}
-        sizes="480px"
-        className="pointer-events-none absolute -right-40 -bottom-48 hidden w-[440px] animate-[spin_200s_linear_infinite_reverse] md:block lg:-right-44 lg:-bottom-52 lg:w-[480px]"
+        sizes="(min-width: 1024px) 480px, (min-width: 768px) 440px, 270px"
+        className="pointer-events-none absolute -right-32 -bottom-32 w-[270px] animate-[spin_200s_linear_infinite_reverse] md:-right-40 md:-bottom-48 md:w-[440px] lg:-right-44 lg:-bottom-52 lg:w-[480px]"
       />
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pt-24 pb-20 sm:px-6 sm:pt-28 md:grid-cols-[1.1fr_0.9fr] md:pt-20 lg:px-8 lg:pt-24 lg:pb-28">
