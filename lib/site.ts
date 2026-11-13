@@ -81,7 +81,11 @@ export const site = {
    * here (e.g. "/images/hero.jpg"). Empty = the illustrated placeholder is used.
    */
   images: {
-    /** Transparent cut-out of the drawstring pouch — hero, and any edition without its own photo. */
+    /** Book cover shown in the hero (800×1600). */
+    hero: "/images/hero.jpeg",
+    /** Painted folk mandala (transparent PNG) for the hero corners. */
+    mandala: "/images/mandala.png",
+    /** Transparent cut-out of the drawstring pouch — used for any edition without its own photo. */
     pouch: "/images/pouch.png",
     logo: "/images/logo.jpeg",
     book: "",
