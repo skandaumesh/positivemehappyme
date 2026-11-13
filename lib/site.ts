@@ -100,7 +100,7 @@ export const site = {
     /** Transparent cut-out of the drawstring pouch — used for any edition without its own photo. */
     pouch: "/images/pouch.png",
     logo: "/images/logo.jpeg",
-    book: "",
+    book: "/images/intro.jpeg",
     kids: "/images/kids-book.jpeg",
     adults: "/images/adults-book.jpeg",
   },

@@ -1,5 +1,6 @@
 import { CartBar } from "@/components/cart/CartBar";
 import { Book } from "@/components/home/Book";
+import { Curator } from "@/components/home/Curator";
 import { Editions } from "@/components/home/Editions";
 import { Experience } from "@/components/home/Experience";
 import { Footer } from "@/components/home/Footer";
@@ -19,6 +20,7 @@ export default function Home() {
         <Philosophy />
         <Book />
         <Experience />
+        <Curator />
         <Editions />
         <HowToOrder />
       </main>

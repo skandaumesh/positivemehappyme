@@ -1,23 +1,23 @@
 import Image from "next/image";
-import { ColouringPage } from "@/components/art/ColouringPage";
 import { site } from "@/lib/site";
 
 export function Book() {
   return (
     <section id="book" className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 sm:px-6 md:grid-cols-2 lg:gap-20 lg:px-8">
+        {/* A page from the book, shown like a sheet of paper on a blush card */}
         <div className="order-2 md:order-1">
-          {site.images.book ? (
+          <div className="relative mx-auto w-full max-w-[440px]">
+            <div aria-hidden="true" className="absolute inset-[6%] -rotate-6 rounded-[1.75rem] bg-blush" />
             <Image
               src={site.images.book}
-              alt="Inside pages of My Daily Dose of Affirmation"
-              width={880}
-              height={1000}
-              className="rounded-[2rem] object-cover shadow-2xl"
+              alt="A page from My Daily Dose of Affirmation: the affirmation “I never give up” on a mandala, half coloured in and half waiting to be coloured"
+              width={1254}
+              height={1254}
+              sizes="(min-width: 768px) 440px, 90vw"
+              className="relative h-auto w-full rotate-2 rounded-[1.5rem] border border-champagne bg-white shadow-[0_30px_60px_-30px_rgba(86,13,34,0.4)]"
             />
-          ) : (
-            <ColouringPage />
-          )}
+          </div>
         </div>
 
         <div className="order-1 text-center md:order-2 md:text-left">

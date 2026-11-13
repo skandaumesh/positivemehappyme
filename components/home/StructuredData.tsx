@@ -8,6 +8,7 @@ import { EDITIONS, EDITION_KEYS, PRICES, site } from "@/lib/site";
 export function StructuredData() {
   const u = (p = "") => `${site.url}${p}`;
   const orgId = u("/#organization");
+  const founderId = u("/#neha-lal");
 
   const products = EDITION_KEYS.map((key) => {
     const ed = EDITIONS[key];
@@ -52,9 +53,21 @@ export function StructuredData() {
         logo: u(site.images.logo),
         image: u(site.images.hero),
         description: "A creative wellness brand bringing together colouring, affirmations, mindfulness and manifestation.",
-        founder: { "@type": "Person", name: site.author },
+        founder: { "@id": founderId },
         sameAs: [`https://www.instagram.com/${site.instagram}/`],
         ...(site.email ? { email: site.email } : {}),
+      },
+      {
+        "@type": "Person",
+        "@id": founderId,
+        name: site.author,
+        jobTitle: "Founder & Curator",
+        description:
+          "Curator of My Daily Dose of Affirmation and founder of Positive Me Happy Me. Neha runs affirmation art workshops that bring together creativity and positive thinking.",
+        url: u("/#curator"),
+        worksFor: { "@id": orgId },
+        knowsAbout: ["Affirmations", "Manifestation", "Mindfulness", "Affirmation art", "Colouring"],
+        sameAs: [`https://www.instagram.com/${site.instagram}/`],
       },
       {
         "@type": "WebSite",

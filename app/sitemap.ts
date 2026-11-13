@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
       images: [
         img(site.images.hero),
+        img(site.images.book),
         img(site.images.kids),
         img(site.images.adults),
         img(site.images.pouch),
