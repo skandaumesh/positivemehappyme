@@ -1,26 +1,175 @@
 @import "tailwindcss";
 
+/* Palette taken from the book-launch invite: ivory paper, deep teal "BOOK",
+   maroon "LAUNCH", blush brush-strokes and gold filigree. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --pm-ivory: #fbf6ee;
+  --pm-cream: #f5ecdd;
+  --pm-champagne: #ead9bd;
+  --pm-blush: #f6dcd6;
+  --pm-blush-deep: #e9b4ab;
+  --pm-maroon: #7b1631;
+  --pm-maroon-deep: #560d22;
+  --pm-teal: #0f5c5a;
+  --pm-teal-deep: #0b4040;
+  --pm-gold: #c39a45;
+  --pm-gold-light: #e8cf93;
+  --pm-terracotta: #c4623a;
+  --pm-ink: #3a2924;
+  --pm-ink-soft: #6b554f;
+  color-scheme: light;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ivory: var(--pm-ivory);
+  --color-cream: var(--pm-cream);
+  --color-champagne: var(--pm-champagne);
+  --color-blush: var(--pm-blush);
+  --color-blush-deep: var(--pm-blush-deep);
+  --color-maroon: var(--pm-maroon);
+  --color-maroon-deep: var(--pm-maroon-deep);
+  --color-teal: var(--pm-teal);
+  --color-teal-deep: var(--pm-teal-deep);
+  --color-gold: var(--pm-gold);
+  --color-gold-light: var(--pm-gold-light);
+  --color-terracotta: var(--pm-terracotta);
+  --color-ink: var(--pm-ink);
+  --color-ink-soft: var(--pm-ink-soft);
+
+  --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-script: var(--font-great-vibes), "Brush Script MT", cursive;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--pm-ivory);
+  color: var(--pm-ink);
+}
+
+::selection {
+  background: var(--pm-blush-deep);
+  color: var(--pm-maroon-deep);
+}
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.875rem 1.75rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    transition:
+      background-color 0.2s,
+      color 0.2s,
+      border-color 0.2s,
+      transform 0.2s,
+      box-shadow 0.2s;
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn:focus-visible {
+    outline: 2px solid var(--pm-maroon);
+    outline-offset: 3px;
+  }
+  .btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  .btn-primary {
+    background: var(--pm-maroon);
+    color: var(--pm-ivory);
+    box-shadow: 0 12px 24px -12px rgb(123 22 49 / 0.65);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: var(--pm-maroon-deep);
+  }
+  .btn-outline {
+    border: 1.5px solid var(--pm-teal);
+    color: var(--pm-teal);
+    background: rgb(251 246 238 / 0.6);
+  }
+  .btn-outline:hover {
+    background: var(--pm-teal);
+    color: var(--pm-ivory);
+  }
+  .btn-gold {
+    background: var(--pm-gold-light);
+    color: var(--pm-maroon-deep);
+  }
+  .btn-gold:hover {
+    background: var(--pm-ivory);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--pm-teal);
+  }
+  .eyebrow::before,
+  .eyebrow::after {
+    content: "";
+    width: 1.75rem;
+    height: 1px;
+    background: var(--pm-gold);
+  }
+
+  /* Pink brush-stroke highlight, like the invite's tagline banner */
+  .brush {
+    background:
+      linear-gradient(100deg, transparent 0 2%, rgb(246 220 214 / 0.95) 4% 96%, transparent 98%),
+      linear-gradient(95deg, transparent 0 6%, rgb(233 180 171 / 0.35) 8% 92%, transparent 94%);
+    border-radius: 45% 55% 48% 52% / 60% 50% 55% 45%;
+  }
+
+  .input {
+    width: 100%;
+    border-radius: 0.875rem;
+    border: 1.5px solid var(--pm-champagne);
+    background: #fff;
+    padding: 0.8rem 1rem;
+    font-size: 1rem; /* 16px stops iOS zooming on focus */
+    color: var(--pm-ink);
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s;
+  }
+  .input::placeholder {
+    color: #a8958e;
+  }
+  .input:focus {
+    outline: none;
+    border-color: var(--pm-maroon);
+    box-shadow: 0 0 0 4px rgb(123 22 49 / 0.12);
+  }
+  .input[aria-invalid="true"] {
+    border-color: var(--pm-maroon);
+    background: #fff8f7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
